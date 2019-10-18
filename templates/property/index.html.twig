@@ -4,7 +4,17 @@
 
 {% block body %}
 
-    <div class="container text-center mt-4">
+    <div class="container mt-4">
         <h1>Liste De Nos Biens</h1>
+        <div class="row">
+            {% for property in properties %}
+            <div class="col-md-4">
+                   {% include 'property/_property.html.twig' %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="navigation d-flex justify-content-center">
+            {{ knp_pagination_render(properties) }}
+        </div>
     </div>
 {% endblock %}
